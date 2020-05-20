@@ -327,7 +327,7 @@ if __name__ == "__main__":
     x = [[0 if j == i else commute_list[i][j] for j in range(len(INITIAL_DATA))] for i in range(len(INITIAL_DATA))]
     for i in range(len(INITIAL_DATA)):
         for j in range(len(INITIAL_DATA)):
-            x[i][j] = x[i][j] * 0.0001
+            x[i][j] = x[i][j]
     '''
     x = [[0, 7619, 2770, 2251, 140961, 82706, 238314],
          [67284, 0, 22098, 1166, 17807, 41734, 3748],

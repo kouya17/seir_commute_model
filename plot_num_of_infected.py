@@ -26,7 +26,7 @@ if __name__ == "__main__":
     RESULT_NAME = 'result'
     
     rcParams['font.family'] = 'sans-serif'
-    rcParams['font.sans-serif'] = ['Hiragino Maru Gothic Pro', 'Yu Gothic', 'Meirio', 'Takao', 'IPAexGothic', 'IPAPGothic', 'VL PGothic', 'Noto Sans CJK JP']
+    rcParams['font.sans-serif'] = ['Yu Gothic', 'Meirio', 'Takao', 'IPAexGothic', 'IPAPGothic', 'VL PGothic', 'Noto Sans CJK JP']
     
     output_info_dict = get_output_info_dict('./output_info.txt')
     print('output_info_dict: ', output_info_dict)
@@ -53,7 +53,8 @@ if __name__ == "__main__":
     x = np.arange(len(labels))
     width = 0.2
     
-    fig, ax = plt.subplots()
+    fig = plt.figure(figsize=(10.0, 6.0))
+    ax = fig.add_subplot(111)
     rects1 = ax.bar(x - 1.5 * width, infected_list[0], width, label='通勤・通学なし')
     rects2 = ax.bar(x - 0.5 * width, infected_list[1], width, label='通勤・通学あり、人数加工なし')
     rects3 = ax.bar(x + 0.5 * width, infected_list[2], width, label='通勤・通学あり、人数20%')

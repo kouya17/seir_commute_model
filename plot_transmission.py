@@ -40,7 +40,7 @@ if __name__ == "__main__":
     '''
     
     for d in df_list:
-        d['EI_ratio'] = (d['I'] + d['E']) / (d['S'] + d['E'] + d['I'] + d['R'])
+        d['I_ratio'] = d['I'] / (d['S'] + d['E'] + d['I'] + d['R'])
     print(df_list[0])
     columns = df_list[0].columns.values
     pref_list = []
@@ -60,8 +60,8 @@ if __name__ == "__main__":
         norm = plt.Normalize(vmin=0, vmax=1)
         fcol = lambda x: '#' + bytes(cmap(norm(x), bytes=True)).hex()
         plt.colorbar(plt.cm.ScalarMappable(norm, cmap))
-        print(df.EI_ratio.apply(fcol))
+        print(df.I_ratio.apply(fcol))
         plt.title('t = {:>4} [day]'.format(int(i * 0.1)))
-        plt.imshow(picture(df.EI_ratio.apply(fcol)))
+        plt.imshow(picture(df.I_ratio.apply(fcol)))
         fig.savefig('./figure/{:0=3}.png'.format(num))
         num = num + 1
